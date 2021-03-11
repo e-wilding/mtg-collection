@@ -60,7 +60,8 @@ module.exports = env => {
                     options: {
                       importLoaders: 0 
                     }
-                  }
+                  },
+                  'postcss-loader'
                 ]
               }
             ]
