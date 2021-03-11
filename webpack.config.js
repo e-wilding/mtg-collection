@@ -1,24 +1,9 @@
 const path = require('path')
 
 module.exports = {
-    entry: './client/index.js',
-    output: {
-        path: `${__dirname}/build`,
-        filename: 'bundle.js',
-    },
-    mode: 'production',
-    module: {
-        rules: [
-            {   
-                exclude: /node_modules/,
-                test: /\.jsx?$/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env','@babel/preset-react']
-                    }
-                },
-            }
-        ]
-    },
+  entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  }
 }
