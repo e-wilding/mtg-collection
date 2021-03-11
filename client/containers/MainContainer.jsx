@@ -31,5 +31,5 @@
     </div>
 )
  
-//  export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
-export default MainContainer
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+// export default MainContainer
