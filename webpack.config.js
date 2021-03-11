@@ -1,7 +1,11 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'client', 'src', 'app.jsx'),
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'

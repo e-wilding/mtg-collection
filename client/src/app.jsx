@@ -1,11 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-ReactDOM.render(
-  React.createElement('div', null, `Hello React`),
-  document.getElementById('app')
+const App = ({ props }) => (
+  <div>
+    Webpack HMR Example
+  </div>
 )
 
+export default App
 
 // import React, { Component } from 'react';
 // import { render } from 'react-dom';
