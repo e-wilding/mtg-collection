@@ -1,0 +1,40 @@
+{
+  "name": "mtg-collection",
+  "version": "1.0.0",
+  "description": "Create a digital version of your paper MTG collection",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.2",
+    "mini-css-extract-plugin": "^1.3.9",
+    "postcss-loader": "^5.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "dev": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-wilding/mtg-collection.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e-wilding/mtg-collection/issues"
+  },
+  "homepage": "https://github.com/e-wilding/mtg-collection#readme"
+}
