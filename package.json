@@ -13,8 +13,11 @@
     "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
   "scripts": {
+    "dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
