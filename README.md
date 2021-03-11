@@ -22,6 +22,3 @@ Account creation/authentication.
 Create your own decks based on your collection.
 Make the collections shareable with friends.
 Send trade requests to friends.
-
-
-
