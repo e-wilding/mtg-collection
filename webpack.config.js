@@ -12,7 +12,7 @@ module.exports = env => {
               }),
             new webpack.HotModuleReplacementPlugin()
         ],
-        entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
+        entry: path.resolve(__dirname, 'client', 'index.js'),
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'bundle.js'
@@ -29,7 +29,7 @@ module.exports = env => {
             rules: [
             {
                 test: /\.(jsx|js)$/,
-                include: path.resolve(__dirname, 'client', 'src'),
+                include: path.resolve(__dirname, 'client'),
                 exclude: /node_modules/,
                 use: [{
                 loader: 'babel-loader',
@@ -45,7 +45,7 @@ module.exports = env => {
             },
             {
                 test: /\.css$/i,
-                include: path.resolve(__dirname, 'client', 'src'),
+                include: path.resolve(__dirname, 'client'),
                 exclude: /node_modules/,
                 use: [
                   {
