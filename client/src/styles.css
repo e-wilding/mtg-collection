@@ -1,0 +1,7 @@
+body {
+    background: white
+  }
+
+::placeholder {
+    color: gray;
+  }
