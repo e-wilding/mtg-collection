@@ -9,8 +9,9 @@
  * ************************************
  */
 
- import React, { Component } from 'react';
- import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
  // import from child components...
 //  import MarketsContainer from './MarketsContainer.jsx'
 //  import TotalsDisplay from '../components/TotalsDisplay.jsx'
@@ -27,9 +28,8 @@
  
  const MainContainer = ({ props }) => (
     <div className="container">
-        asdfasdf
+        <CollectionsDisplay></CollectionsDisplay>
     </div>
 )
  
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
-// export default MainContainer
