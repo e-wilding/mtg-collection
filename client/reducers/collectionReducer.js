@@ -71,10 +71,23 @@
       }
       case types.DELETE_CARD: {
          const totalCards = state.totalCards > 0 ? state.totalCards - 1 : 0;
- 
+         const newCollection =  { ...(state.collection) };
+
+         if(state.lastCard.card.name in newCollection) {
+            console.log("ALREADY HAVE THIS CARD")
+             newCollection[state.lastCard.card.name].count = newCollection[state.lastCard.card.name].count > 0 ? newCollection[state.lastCard.card.name].count - 1 : 0
+          } else {
+             console.log("DO NOT HAVE THIS CARD")
+             newCollection[state.lastCard.card.name.toString()] = {
+                card : state.lastCard.card,
+                count : 1
+             }
+          }
+
          return {
             ...state,
             totalCards,
+            collection : newCollection
           }
        }
      default: {
