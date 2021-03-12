@@ -1,7 +1,31 @@
 body {
-    background: white
-  }
+  background: white;
+}
+
+.mainContainer {
+  background: lightcoral;
+}
+
+.collectionContainer {
+  background: lightpink;
+}
+
+.searchDisplay {
+  background: lightgreen;
+}
+
+.collectionsDisplay {
+  background: lightsalmon;
+}
+
+.cardDisplay {
+  background: lightcyan;
+}
+
+.card {
+  background: orange;
+}
 
 ::placeholder {
     color: gray;
-  }
+}
