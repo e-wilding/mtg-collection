@@ -4,6 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = env => {
     return {
+        resolve: {
+            fallback: {
+              util: require.resolve("util/")
+            }
+        },
         mode: 'development',
         plugins: [
             new MiniCssExtractPlugin({
