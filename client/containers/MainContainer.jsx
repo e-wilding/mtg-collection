@@ -17,11 +17,11 @@ import CardDisplay from '../components/CardDisplay.jsx';
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = state => ({
-    cardImage  : state.collection.lastCard.img
+    cardImage: state.collection.lastCard.img
 });
- 
- const mapDispatchToProps = dispatch => ({
-   // create functions that will dispatch action creators
+
+const mapDispatchToProps = dispatch => ({
+    // create functions that will dispatch action creators
     addCard: () => {
         dispatch(actions.addCard())
     },
@@ -29,31 +29,31 @@ const mapStateToProps = state => ({
     deleteCard: () => {
         dispatch(actions.deleteCard())
     },
- });
- 
- class MainContainer extends Component {
+});
+
+class MainContainer extends Component {
     constructor(props) {
-      super(props);
+        super(props);
     }
     render() {
-        return(
+        return (
             <div className="mainContainer">
-                { 
+                {
                     <CollectionsDisplay></CollectionsDisplay>
                 }
                 {
-                    <CollectionContainer></CollectionContainer> 
+                    <CollectionContainer></CollectionContainer>
                 }
                 {
-                    <CardDisplay 
-                        cardImage   = {this.props.cardImage}
-                        addCard     = {this.props.addCard}
-                        deleteCard  = {this.props.deleteCard}>
+                    <CardDisplay
+                        cardImage={this.props.cardImage}
+                        addCard={this.props.addCard}
+                        deleteCard={this.props.deleteCard}>
                     </CardDisplay>
                 }
             </div>
         );
     }
 }
- 
+
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

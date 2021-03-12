@@ -11,6 +11,6 @@ export const deleteCard = () => ({
 export const newSearch = (searched_card) => ({
     type: types.NEW_SEARCH,
     payload: {
-        card : searched_card
+        card: searched_card
     }
 })

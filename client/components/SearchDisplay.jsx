@@ -8,7 +8,7 @@ const SearchDisplay = (props) => (
                 Enter Card Name:
                 <input type="text" id="cardNameSearch" />
             </label>
-            <input type="submit" value="Search Card" onClick={props.findCard}/>
+            <input type="submit" value="Search Card" onClick={props.findCard} />
         </form>
     </div>
 )
