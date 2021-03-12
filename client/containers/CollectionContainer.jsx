@@ -12,13 +12,14 @@ const mapStateToProps = state => ({
 });
  
  const mapDispatchToProps = dispatch => ({
-    findCard: () => {
+    findCard: (e) => {
+        e.preventDefault()
+        const cardName = document.querySelector('#cardNameSearch')
+        console.log(cardName.value)
         console.log("Entered Find Card Fn")
-        console.time("cardFetch")
-            scryfall.getCard("Jace, the Mindsculptor", "exactName")
+            scryfall.getCard(cardName.value, "exactName")
                     .then((card) => {
                         console.log(card)
-                        console.timeEnd("cardFetch")
                         dispatch(actions.newSearch(card))
                     })
                     .catch((err) => {
