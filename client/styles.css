@@ -1,9 +1,29 @@
 body {
-  background: white
+  background: white;
 }
 
-.collectionsList {
-  background: red;
+.mainContainer {
+  background: lightcoral;
+}
+
+.collectionContainer {
+  background: lightpink;
+}
+
+.searchDisplay {
+  background: lightgreen;
+}
+
+.collectionsDisplay {
+  background: lightsalmon;
+}
+
+.cardDisplay {
+  background: lightcyan;
+}
+
+.card {
+  background: orange;
 }
 
 ::placeholder {

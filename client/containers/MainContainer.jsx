@@ -4,7 +4,7 @@
  * @module  MainContainer
  * @author
  * @date
- * @description stateful component that renders TotalsDisplay and MarketsContainer
+ * @description stateful component that renders different displays
  *
  * ************************************
  */
@@ -13,13 +13,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
 import CollectionContainer from './CollectionContainer.jsx'
-// import CollectionDisplay from './CollectionDisplay.jsx';
 import CardDisplay from '../components/CardDisplay.jsx';
 import * as actions from '../actions/actions.js'
-const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
-    totalCards : state.collection.totalCards,
     cardImage  : state.collection.lastCard.img
 });
  
@@ -40,7 +37,7 @@ const mapStateToProps = state => ({
     }
     render() {
         return(
-            <div className="container">
+            <div className="mainContainer">
                 { 
                     <CollectionsDisplay></CollectionsDisplay>
                 }

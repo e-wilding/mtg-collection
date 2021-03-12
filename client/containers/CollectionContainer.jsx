@@ -37,9 +37,7 @@ class CollectionContainer extends Component {
         let cardList = []
 
         for(const [key, val] of Object.entries(this.props.collection)){
-            console.log("CARDLIST KEY: ", key)
-            console.log("CARDLIST VAL: ", this.props.collection[key].card)
-            let newCard = <Card key={val.card.id} card={val}>Vardasdf</Card>
+            let newCard = <Card key={val.card.id} card={val}></Card>
             cardList.push(newCard);
         }
 

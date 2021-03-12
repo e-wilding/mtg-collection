@@ -1,10 +1,10 @@
 /**
  * ************************************
  *
- * @module  marketsReducer
+ * @module  collectionReducer
  * @author
  * @date
- * @description reducer for market data
+ * @description reducer for collection data
  *
  * ************************************
  */
@@ -28,9 +28,7 @@
  const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
       case types.NEW_SEARCH: {
-         console.log("NEW SEARCH PAYLOAD: ", action.payload.card)
-
-         let lastCard = {
+         const lastCard = {
             card : action.payload.card,
             img : action.payload.card.image_uris.normal
          }
@@ -41,15 +39,10 @@
           };
        }
      case types.ADD_CARD: {
-        console.log("INSIDE ADD CARD REDUCER")
-        const totalCards = state.totalCards += 1;
         // If the card name is already in your collection just increase the count by 1
         // Otherwise store it into a new entry in your collection and set count to 1 
         const newCollection =  { ...(state.collection) };
-
-         console.log("NEW COLLECTION NAME: ", Object.keys(newCollection))
-         console.log("LAST CARD NAME: ", state.lastCard.card.name.toString())
-
+        const totalCards = state.totalCards += 1;
 
         if(state.lastCard.card.name in newCollection) {
            console.log("ALREADY HAVE THIS CARD")
@@ -61,7 +54,6 @@
                count : 1
             }
          }
-         console.log("NEW COLLECTION AFTER: ", newCollection)
 
         return {
            ...state,
