@@ -12,7 +12,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
-import CollectionDisplay from '../components/CollectionDisplay.jsx';
+import CollectionContainer from './CollectionContainer.jsx'
+// import CollectionDisplay from './CollectionDisplay.jsx';
 import CardDisplay from '../components/CardDisplay.jsx';
 import * as actions from '../actions/actions.js'
 const scryfall = require("scryfall-client");
@@ -31,21 +32,6 @@ const mapStateToProps = state => ({
     deleteCard: () => {
         dispatch(actions.deleteCard())
     },
-
-    findCard: () => {
-        console.log("Entered Find Card Fn")
-        console.time("cardFetch")
-            scryfall.getCard("Jace, the Mindsculptor", "exactName")
-                    .then((card) => {
-                        console.log(card)
-                        console.timeEnd("cardFetch")
-                        dispatch(actions.newSearch(card))
-                    })
-                    .catch((err) => {
-                        console.log("ERROR FETCHING CARD: ", err);
-                    })
-    }
-
  });
  
  class MainContainer extends Component {
@@ -59,10 +45,7 @@ const mapStateToProps = state => ({
                     <CollectionsDisplay></CollectionsDisplay>
                 }
                 {
-                    <CollectionDisplay 
-                        totalCards  = {this.props.totalCards}
-                        findCard    = {this.props.findCard}>
-                    </CollectionDisplay> 
+                    <CollectionContainer></CollectionContainer> 
                 }
                 {
                     <CardDisplay 

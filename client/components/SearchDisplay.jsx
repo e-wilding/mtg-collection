@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CardDisplay from './CardDisplay.jsx'
 
-const CollectionDisplay = (props) => (
+const SearchDisplay = (props) => (
     <div className="collectionDisplay">
         <h1>TOTAL CARDS: {props.totalCards}</h1>
         <input type="text" id="cardsearch"></input>
@@ -9,4 +8,4 @@ const CollectionDisplay = (props) => (
     </div>
 )
 
-export default CollectionDisplay;
+export default SearchDisplay;
