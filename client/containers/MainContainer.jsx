@@ -13,6 +13,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
 import CollectionDisplay from '../components/CollectionDisplay.jsx';
+import CardDisplay from '../components/CardDisplay.jsx';
+
 
  // import from child components...
 //  import MarketsContainer from './MarketsContainer.jsx'
@@ -40,6 +42,9 @@ import CollectionDisplay from '../components/CollectionDisplay.jsx';
                 }
                 {
                     <CollectionDisplay></CollectionDisplay> 
+                }
+                {
+                    <CardDisplay></CardDisplay>
                 }
             </div>
         );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-// const mtg = require('mtgsdk')
+import CardDisplay from './CardDisplay.jsx'
 const scryfall = require("scryfall-client");
+
 
 class CollectionDisplay extends Component {
     constructor(props) {
@@ -27,7 +28,6 @@ class CollectionDisplay extends Component {
             <div className="collectionDisplay">
                 <input type="text" id="cardsearch"></input>
                 <input type="button" value="Submit" onClick={this.findCard}/>
-                {/* List of cards in collection */}
             </div>
         ); 
     }
