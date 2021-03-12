@@ -18,7 +18,7 @@
  // combine reducers
  const reducers = combineReducers({
    // if we had other reducers, they would go here
-   cards: collectionReducer,
+   collection: collectionReducer,
  });
  
  // make the combined reducers available for import

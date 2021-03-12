@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
 import CollectionDisplay from '../components/CollectionDisplay.jsx';
 import CardDisplay from '../components/CardDisplay.jsx';
+import * as actions from '../actions/actions.js'
 
 
  // import from child components...
@@ -21,13 +22,26 @@ import CardDisplay from '../components/CardDisplay.jsx';
 //  import TotalsDisplay from '../components/TotalsDisplay.jsx'
  
  const mapStateToProps = state => ({
-   // add pertinent state here
-    //  totalCards : state.markets.totalCards,
-    //  totalMarkets : state.markets.totalMarkets
+    totalCards : state.collection.totalCards,
+    cardImage  : state.collection.cardImage
  });
  
  const mapDispatchToProps = dispatch => ({
- 
+   // create functions that will dispatch action creators
+//   // TODO: change payload
+//   addMarket: (e) => {
+//     e.preventDefault()
+//     const location = document.querySelector('#location')
+//     dispatch(actions.addMarket(location.value))
+//   },
+
+  addCard: () => {
+    dispatch(actions.addCard())
+  },
+
+//   deleteCard: () => {
+//     dispatch(actions.deleteCard())
+//   }
  });
  
  class MainContainer extends Component {
@@ -41,10 +55,10 @@ import CardDisplay from '../components/CardDisplay.jsx';
                     <CollectionsDisplay></CollectionsDisplay>
                 }
                 {
-                    <CollectionDisplay></CollectionDisplay> 
+                    <CollectionDisplay totalCards={this.props.totalCards}></CollectionDisplay> 
                 }
                 {
-                    <CardDisplay></CardDisplay>
+                    <CardDisplay addCard={this.props.addCard}></CardDisplay>
                 }
             </div>
         );
