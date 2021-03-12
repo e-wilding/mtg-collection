@@ -12,6 +12,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
+import CollectionDisplay from '../components/CollectionDisplay.jsx';
+
  // import from child components...
 //  import MarketsContainer from './MarketsContainer.jsx'
 //  import TotalsDisplay from '../components/TotalsDisplay.jsx'
@@ -26,10 +28,22 @@ import CollectionsDisplay from '../components/CollectionsDisplay.jsx';
  
  });
  
- const MainContainer = ({ props }) => (
-    <div className="container">
-        <CollectionsDisplay></CollectionsDisplay>
-    </div>
-)
+ class MainContainer extends Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+        return(
+            <div className="container">
+                { 
+                    <CollectionsDisplay></CollectionsDisplay>
+                }
+                {
+                    <CollectionDisplay></CollectionDisplay> 
+                }
+            </div>
+        );
+    }
+}
  
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

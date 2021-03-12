@@ -11,7 +11,7 @@ if (module.hot) module.hot.accept()
 render(
     // wrap the App in the Provider and pass in the store
     <Provider store={store}>
-        <App/>
+        <App></App>
     </Provider>,
     document.getElementById('root')
 );
