@@ -10,9 +10,9 @@ export const deleteCard = () => ({
     // payload: 1
 })
 
-export const newSearch = (img) => ({
+export const newSearch = (searched_card) => ({
     type: types.NEW_SEARCH,
     payload: {
-        img_uri : img
+        card : searched_card
     }
 })

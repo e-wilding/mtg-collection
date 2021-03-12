@@ -39,7 +39,7 @@ const mapStateToProps = state => ({
                     .then((card) => {
                         console.log(card)
                         console.timeEnd("cardFetch")
-                        dispatch(actions.newSearch(card.image_uris.normal))
+                        dispatch(actions.newSearch(card))
                     })
                     .catch((err) => {
                         console.log("ERROR FETCHING CARD: ", err);
