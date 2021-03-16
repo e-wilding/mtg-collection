@@ -14,6 +14,10 @@ const mapDispatchToProps = dispatch => ({
         e.preventDefault()
         const deckName = document.querySelector('#deckName')
         dispatch(actions.addDeck(deckName.value));
+    },
+
+    updateLoadedDeckId: (id) => {
+        dispatch(actions.updateLoadedDeckId(id))
     }
 });
 
@@ -27,9 +31,10 @@ class MyDecksContainer extends Component {
 
         // Loop through deck list...
         console.log("PROPS DECKS: ", this.props.decks)
-        for (const deck of this.props.decks) {
-            console.log("DECK IDX: ", deck)
-            let newDeck = <DecksDisplay id={"deck" + Math.random()} deckName={deck.name}></DecksDisplay>
+        //for (const key of this.props.decks) {
+        for (let i = 0; i < this.props.decks.length; i++) {
+            console.log("DECK IDX: ", decks)
+            let newDeck = <DecksDisplay id={"deck" + i} deckName={this.props.decks[i].name} deckId={i} updateLoadedDeckId={this.props.updateLoadedDeckId}></DecksDisplay>
             decks.push(newDeck);
         }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const DecksDisplay = (props) => (
     <div className="deckDisplay">
-        <span>{props.deckName}</span>
+        <button onClick={() => props.updateLoadedDeckId(props.deckId)}></button>
     </div>
 );
 

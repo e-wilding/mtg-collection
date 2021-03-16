@@ -1,5 +1,12 @@
 import * as types from '../constants/actionTypes';
 
+export const updateLoadedDeckId = (id) => ({
+    type: types.UPDATE_LOADED_DECK_ID,
+    payload: {
+        id: id
+    }
+})
+
 export const toggleViewMode = () => ({
     type: types.TOGGLE_VIEW_MODE,
 })
