@@ -87,11 +87,15 @@ const collectionReducer = (state = initialState, action) => {
          const newDecks = [...state.decks]
 
          console.log("INSIDE DELETE_CARD_FROM_DECK")
-         //totalCards = newDeckCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
-         // newDeckCollection[action.payload.cardName].count = newDeckCollection[action.payload.cardName].count > 0 ? newDeckCollection[action.payload.cardName].count - 1 : 0
-         // if (newDeckCollection[action.payload.cardName].count === 0) {
-         //    delete (newDeckCollection[action.payload.cardName])
-         // }
+         console.log("DELETING ", action.payload.card.name, " FROM DECK ID: ", state.deck_loaded)
+         if (action.payload.card.name in newDecks[state.deck_loaded].cardList) {
+            console.log("ALREADY HAVE THIS CARD IN DECK AS EXPECTED")
+
+            newDecks[state.deck_loaded].cardList[action.payload.card.name].count = newDecks[state.deck_loaded].cardList[action.payload.card.name].count > 0 ? newDecks[state.deck_loaded].cardList[action.payload.card.name].count - 1 : 0
+            if (newDecks[state.deck_loaded].cardList[action.payload.card.name].count === 0) {
+               delete (newDecks[state.deck_loaded].cardList[action.payload.card.name])
+            }
+         }
 
          return {
             ...state,
