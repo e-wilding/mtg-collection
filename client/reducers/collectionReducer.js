@@ -43,16 +43,18 @@ export const DELETE_CARD_FROM_DECK_COLLECTION = "DELETE_CARD_FROM_DECK_COLLECTIO
 const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
       case types.DELETE_CARD_FROM_DECK_COLLECTION: {
-         const newDeckCollection = { ...(state.deck_collection) };
+         const newDeckCollection = { ...state.deck_collection };
+         const cardName = action.payload.card.name;
+         let cardCount = newDeckCollection[cardName].count;
 
          console.log("INSIDE DELETE_CARD_FROM_DECK_COLLECTION")
-         console.log("DELETING ", action.payload.card.name, " FROM DECK ID", state.deck_loaded)
+         console.log("DELETING ", cardName, " FROM DECK ID", state.deck_loaded)
 
-         if (action.payload.card.name in newDeckCollection) {
+         if (cardName in newDeckCollection) {
             console.log("HAVE CARD IN COLLECTION AS EXPECTED")
-            newDeckCollection[action.payload.card.name].count = newDeckCollection[action.payload.card.name].count > 0 ? newDeckCollection[action.payload.card.name].count - 1 : 0
-            if (newDeckCollection[action.payload.card.name].count === 0) {
-               delete (newDeckCollection[action.payload.card.name])
+            newDeckCollection[cardName].count = cardCount > 0 ? cardCount - 1 : 0
+            if (newDeckCollection[cardName].count === 0) {
+               delete (newDeckCollection[cardName])
             }
          } else {
             console.log("TRYING TO DELETE CARD THAT DOESN'T EXIST FROM DECK FOR SOME WEIRD REASON")
@@ -64,16 +66,19 @@ const collectionReducer = (state = initialState, action) => {
          };
       }
       case types.ADD_CARD_TO_DECK_COLLECTION: {
-         const newDeckCollection = { ...(state.deck_collection) }
-         console.log("ADDING ", action.payload.card.name, " TO DECK COLLECTION")
+         const newDeckCollection = { ...state.deck_collection }
+         const cardName = action.payload.card.name;
 
-         if (action.payload.card.name in newDeckCollection) {
+         console.log("INSIDE ADD_CARD_TO_DECK_COLLECTION")
+         console.log("ADDING ", cardName, " TO DECK COLLECTION")
+
+         if (cardName in newDeckCollection) {
             console.log("ALREADY HAD THIS CARD")
-            newDeckCollection[action.payload.card.name].count = newDeckCollection[action.payload.card.name].count + 1
+            newDeckCollection[cardName].count = newDeckCollection[cardName].count + 1
          } else {
             console.log("DO NOT HAD THIS CARD")
-            newDeckCollection[action.payload.card.name.toString()] = {
-               card: state.lastCard.card,
+            newDeckCollection[cardName.toString()] = {
+               card: cardName,
                count: 1
             }
          }
@@ -88,9 +93,9 @@ const collectionReducer = (state = initialState, action) => {
 
          console.log("INSIDE DELETE_CARD_FROM_DECK")
          console.log("DELETING ", action.payload.card.name, " FROM DECK ID: ", state.deck_loaded)
+
          if (action.payload.card.name in newDecks[state.deck_loaded].cardList) {
             console.log("ALREADY HAVE THIS CARD IN DECK AS EXPECTED")
-
             newDecks[state.deck_loaded].cardList[action.payload.card.name].count = newDecks[state.deck_loaded].cardList[action.payload.card.name].count > 0 ? newDecks[state.deck_loaded].cardList[action.payload.card.name].count - 1 : 0
             if (newDecks[state.deck_loaded].cardList[action.payload.card.name].count === 0) {
                delete (newDecks[state.deck_loaded].cardList[action.payload.card.name])
@@ -99,20 +104,22 @@ const collectionReducer = (state = initialState, action) => {
 
          return {
             ...state,
+            decks: newDecks,
          };
       }
       case types.ADD_CARD_TO_DECK: {
          const newDecks = [...state.decks]
+         const cardName = action.payload.card.name
          //action.payload.card
          console.log("INSIDE ADD_CARD_TO_DECK")
-         console.log("ADDING ", action.payload.card.name, " TO DECK ID: ", state.deck_loaded)
+         console.log("ADDING ", cardName, " TO DECK ID: ", state.deck_loaded)
 
-         if (action.payload.card.name in newDecks[state.deck_loaded].cardList) {
+         if (cardName in newDecks[state.deck_loaded].cardList) {
             console.log("ALREADY HAVE THIS CARD IN DECK")
-            newDecks[state.deck_loaded].cardList[action.payload.card.name].count = newDecks[state.deck_loaded].cardList[action.payload.card.name].count + 1
+            newDecks[state.deck_loaded].cardList[cardName].count = newDecks[state.deck_loaded].cardList[cardName].count + 1
          } else {
             console.log("DO NOT HAVE THIS CARD IN DECK YET")
-            newDecks[state.deck_loaded].cardList[action.payload.card.name.toString()] = {
+            newDecks[state.deck_loaded].cardList[cardName.toString()] = {
                card: action.payload.card,
                count: 1
             }
@@ -120,7 +127,7 @@ const collectionReducer = (state = initialState, action) => {
 
          return {
             ...state,
-            decks: newDecks
+            decks: newDecks,
          };
       }
       case types.ADD_DECK: {
@@ -191,26 +198,16 @@ const collectionReducer = (state = initialState, action) => {
       case types.DELETE_CARD_FROM_COLLECTION: {
          let totalCards = state.totalCards;
          const newCollection = { ...(state.collection) };
+         const cardName = state.lastCard.card.name;
 
-         //if (action.payload.from_collection) {
-         if (state.lastCard.card.name in newCollection) {
+         if (cardName in newCollection) {
             console.log("ALREADY HAVE THIS CARD")
-            totalCards = newCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
-            newCollection[state.lastCard.card.name].count = newCollection[state.lastCard.card.name].count > 0 ? newCollection[state.lastCard.card.name].count - 1 : 0
-            if (newCollection[state.lastCard.card.name].count === 0) {
-               delete (newCollection[state.lastCard.card.name])
+            totalCards = newCollection[cardName].count > 0 ? state.totalCards - 1 : state.totalCards;
+            newCollection[cardName].count = newCollection[cardName].count > 0 ? newCollection[cardName].count - 1 : 0
+            if (newCollection[cardName].count === 0) {
+               delete (newCollection[cardName])
             }
          }
-         // } else {
-         //    if (action.payload.cardName in newDeckCollection) {
-         //       console.log("ALREADY HAVE THIS CARD IN DECk")
-         //       //totalCards = newDeckCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
-         //       newDeckCollection[action.payload.cardName].count = newDeckCollection[action.payload.cardName].count > 0 ? newDeckCollection[action.payload.cardName].count - 1 : 0
-         //       if (newDeckCollection[action.payload.cardName].count === 0) {
-         //          delete (newDeckCollection[action.payload.cardName])
-         //       }
-         //    }
-         // }
 
          return {
             ...state,
