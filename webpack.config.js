@@ -33,6 +33,18 @@ module.exports = env => {
     module: {
       rules: [
         {
+          test: /\.(png|jpg|gif)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+                esModule: false,
+              }
+            }
+          ]
+        },
+        {
           test: /\.(jsx|js)$/,
           include: path.resolve(__dirname, 'client'),
           exclude: /node_modules/,
@@ -67,7 +79,7 @@ module.exports = env => {
             },
             'postcss-loader'
           ]
-        }
+        },
       ]
     }
   }
