@@ -5,11 +5,12 @@ export const addCard = () => ({
 })
 
 // default is true, only specify to false if removing from deck
-export const deleteCard = (from_collection = true) => ({
+export const deleteCard = (from_collection = true, card_name) => ({
     type: types.DELETE_CARD,
     payload: {
         // from_collection is a boolean to rather remove from collection or deck
-        fromCollection: from_collection
+        fromCollection: from_collection,
+        cardName: card_name,
     }
 })
 

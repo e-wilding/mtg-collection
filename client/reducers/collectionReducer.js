@@ -112,12 +112,12 @@ const collectionReducer = (state = initialState, action) => {
                }
             }
          } else {
-            if (state.lastCard.card.name in newDeckCollection) {
+            if (action.payload.cardName in newDeckCollection) {
                console.log("ALREADY HAVE THIS CARD IN DECk")
                //totalCards = newDeckCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
-               newDeckCollection[state.lastCard.card.name].count = newDeckCollection[state.lastCard.card.name].count > 0 ? newDeckCollection[state.lastCard.card.name].count - 1 : 0
-               if (newDeckCollection[state.lastCard.card.name].count === 0) {
-                  delete (newDeckCollection[state.lastCard.card.name])
+               newDeckCollection[action.payload.cardName].count = newDeckCollection[action.payload.cardName].count > 0 ? newDeckCollection[action.payload.cardName].count - 1 : 0
+               if (newDeckCollection[action.payload.cardName].count === 0) {
+                  delete (newDeckCollection[action.payload.cardName])
                }
             }
          }
