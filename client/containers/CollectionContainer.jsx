@@ -42,14 +42,6 @@ class CollectionContainer extends Component {
             cardList.push(newCard);
         }
 
-        // let color_imgs = []
-
-        // for (const [key, val] of Object.entries(this.props.collection)) {
-        //     for (let i = 0; i < val.card.colors; i++) {
-        //         if ()
-        //     }
-        // }
-
         return (
             <div className="collectionContainer">
                 {

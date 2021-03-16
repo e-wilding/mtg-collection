@@ -9,9 +9,13 @@
  * ************************************
  */
 
+import { bindActionCreators } from 'redux';
 import * as types from '../constants/actionTypes';
 
 const initialState = {
+   deck_mode: true,
+   deck_loaded: -1, // index of loaded deck
+   decks: [], // array of objects 
    lastCard: {
       card: {},
       img: "https://c1.scryfall.com/file/scryfall-card-backs/large/59/597b79b3-7d77-4261-871a-60dd17403388.jpg?1561757283"
@@ -27,6 +31,22 @@ const initialState = {
 
 const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
+      case types.ADD_DECK: {
+         const newDeck = {
+            name: action.payload.deckName,
+            id: state.decks.size,
+            cardList: [],
+         }
+
+         const decks = state.decks.slice();
+         decks.push(newDeck)
+
+         return {
+            ...state,
+            decks,
+            deck_loaded: newDeck.id, // always load deck you just added
+         };
+      }
       case types.NEW_SEARCH: {
          const lastCard = {
             card: action.payload.card,

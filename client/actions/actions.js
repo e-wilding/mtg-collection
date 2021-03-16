@@ -14,3 +14,11 @@ export const newSearch = (searched_card) => ({
         card: searched_card
     }
 })
+
+
+export const addDeck = (deck_name) => ({
+    type: types.ADD_DECK,
+    payload: {
+        deckName: deck_name
+    }
+})
