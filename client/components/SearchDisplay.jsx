@@ -10,6 +10,7 @@ const SearchDisplay = (props) => (
             </label>
             <input type="submit" value="Search Card" onClick={props.findCard} />
         </form>
+        { props.error ? <h1> hello error </h1> : null}
     </div>
 )
 

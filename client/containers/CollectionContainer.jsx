@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
     cardImage: state.collection.lastCard.img,
     collection: state.collection.collection,
     deck_mode: state.collection.deck_mode,
+    search_error: state.collection.search_error,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,6 +25,7 @@ const mapDispatchToProps = dispatch => ({
                 dispatch(actions.newSearch(card))
             })
             .catch((err) => {
+                dispatch(actions.errorSearch())
                 console.log("ERROR FETCHING CARD: ", err);
             })
     }
@@ -49,7 +51,8 @@ class CollectionContainer extends Component {
                 {
                     <SearchDisplay
                         totalCards={this.props.totalCards}
-                        findCard={this.props.findCard}>
+                        findCard={this.props.findCard}
+                        error={this.props.search_error}>
                     </SearchDisplay>
                 }
                 {

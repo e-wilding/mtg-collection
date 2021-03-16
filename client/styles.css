@@ -2,6 +2,11 @@ body {
   background: white;
 }
 
+.deckBtn {
+  width: 150px;
+  height: 50px;
+}
+
 .color_icon {
   max-width:15px;
   max-height:15px;

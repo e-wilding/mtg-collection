@@ -16,6 +16,7 @@ const initialState = {
    deck_mode: true,
    deck_loaded: -1, // index of loaded deck
    decks: [], // array of objects 
+   search_error: false,
    lastCard: {
       card: {},
       img: "https://c1.scryfall.com/file/scryfall-card-backs/large/59/597b79b3-7d77-4261-871a-60dd17403388.jpg?1561757283"
@@ -42,6 +43,12 @@ export const DELETE_CARD_FROM_DECK_COLLECTION = "DELETE_CARD_FROM_DECK_COLLECTIO
 */
 const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
+      case types.SEARCH_ERROR: {
+         return {
+            ...state,
+            search_error: true,
+         }
+      }
       case types.UPDATE_LOADED_DECK_ID: {
          const newDeckLoadedId = action.payload.id;
 
@@ -223,6 +230,7 @@ const collectionReducer = (state = initialState, action) => {
 
          return {
             ...state,
+            search_error: false,
             totalCards,
             deck_collection: newDeckCollection,
             collection: newCollection

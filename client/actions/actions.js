@@ -58,6 +58,10 @@ export const newSearch = (searched_card) => ({
     }
 })
 
+export const errorSearch = () => ({
+    type: types.SEARCH_ERROR,
+})
+
 export const addDeck = (deck_name) => ({
     type: types.ADD_DECK,
     payload: {
