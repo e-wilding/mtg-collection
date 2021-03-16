@@ -25,12 +25,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     // create functions that will dispatch action creators
-    addCard: () => {
-        dispatch(actions.addCard())
+    addCard: (card) => {
+        dispatch(actions.addCardToCollection(card))
     },
 
-    deleteCard: () => {
-        dispatch(actions.deleteCard())
+    deleteCard: (card) => {
+        dispatch(actions.deleteCardFromCollection(card))
     },
 });
 

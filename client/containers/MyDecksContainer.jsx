@@ -26,7 +26,9 @@ class MyDecksContainer extends Component {
         const decks = []
 
         // Loop through deck list...
+        console.log("PROPS DECKS: ", this.props.decks)
         for (const deck of this.props.decks) {
+            console.log("DECK IDX: ", deck)
             let newDeck = <DecksDisplay id={"deck" + Math.random()} deckName={deck.name}></DecksDisplay>
             decks.push(newDeck);
         }

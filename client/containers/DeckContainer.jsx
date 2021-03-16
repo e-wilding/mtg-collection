@@ -15,13 +15,17 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    moveFromCollToDeck: (card_name) => {
+    moveFromCollToDeck: (card) => {
         console.log("MOVING CARD FROM COLL TO DECK")
         // remove card from collection
-        dispatch(actions.deleteCard(false, card_name))
+        dispatch(actions.deleteCardFromDeckCollection(card))
+        dispatch(actions.addCardToDeck(card))
     },
-    moveFromDeckToColl: () => {
+    moveFromDeckToColl: (card) => {
         console.log("MOVING CARD FROM DECK TO COLL")
+        // remove card from collection
+        dispatch(actions.addCardToDeckCollection(card))
+        dispatch(actions.deleteCardFromDeck(card))
     }
 });
 
@@ -37,16 +41,18 @@ class DeckContainer extends Component {
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
             let newCard = <Card key={val.card.id} card={val}></Card>
-            let btn_plus = <button onClick={() => this.props.moveFromCollToDeck(val.card.name)}>+</button>
-            let btn_minus = <button onClick={this.props.moveFromDeckToColl}>-</button>
+            let btn_plus = <button onClick={() => this.props.moveFromCollToDeck(val.card)}>+</button>
+            let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
             cardList.push(newCard, btn_plus, btn_minus);
         }
 
         // deck list
         // if (this.props.deck_loaded !== -1) {
-        //     for (const val of this.props.decks.cardList[this.props.deck_loaded]) {
-        //         let newCard = <Card key={val.card.id} card={val}></Card>
-        //         deckList.push(newCard);
+        //     if (this.props.decks[this.props.deck_loaded].cardList.length !== 0) {
+        //         for (const val of this.props.decks[this.props.deck_loaded].cardList) {
+        //             let newCard = <Card></Card>
+        //             deckList.push(newCard);
+        //         }
         //     }
         // }
 
