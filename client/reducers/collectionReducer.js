@@ -192,6 +192,7 @@ const collectionReducer = (state = initialState, action) => {
 
          return {
             ...state,
+            search_error: false,
             lastCard
          };
       }
