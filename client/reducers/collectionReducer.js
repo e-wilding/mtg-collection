@@ -20,6 +20,9 @@ const initialState = {
       card: {},
       img: "https://c1.scryfall.com/file/scryfall-card-backs/large/59/597b79b3-7d77-4261-871a-60dd17403388.jpg?1561757283"
    },
+   deck_collection: {
+
+   },
    collection: {
       // cardName : {
       // individual_count : 0
@@ -31,6 +34,16 @@ const initialState = {
 
 const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
+      case types.COLL_TO_DECK: {
+
+         // remove specific card from collection count
+
+         return {
+            ...state,
+            decks,
+            deck_loaded: newDeck.id, // always load deck you just added
+         };
+      }
       case types.ADD_DECK: {
          const newDeck = {
             name: action.payload.deckName,
@@ -75,29 +88,45 @@ const collectionReducer = (state = initialState, action) => {
             }
          }
 
+         const deck_collection_copy = JSON.parse(JSON.stringify(newCollection))
+
          return {
             ...state,
             totalCards,
+            deck_collection: deck_collection_copy,
             collection: newCollection
          }
       }
       case types.DELETE_CARD: {
          let totalCards = state.totalCards;
          const newCollection = { ...(state.collection) };
+         const newDeckCollection = { ...(state.deck_collection) };
 
-         if (state.lastCard.card.name in newCollection) {
-            console.log("ALREADY HAVE THIS CARD")
-            totalCards = newCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
-            newCollection[state.lastCard.card.name].count = newCollection[state.lastCard.card.name].count > 0 ? newCollection[state.lastCard.card.name].count - 1 : 0
-            if (newCollection[state.lastCard.card.name].count === 0) {
-               delete (newCollection[state.lastCard.card.name])
+         if (action.payload.from_collection) {
+            if (state.lastCard.card.name in newCollection) {
+               console.log("ALREADY HAVE THIS CARD")
+               totalCards = newCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
+               newCollection[state.lastCard.card.name].count = newCollection[state.lastCard.card.name].count > 0 ? newCollection[state.lastCard.card.name].count - 1 : 0
+               if (newCollection[state.lastCard.card.name].count === 0) {
+                  delete (newCollection[state.lastCard.card.name])
+               }
+            }
+         } else {
+            if (state.lastCard.card.name in newDeckCollection) {
+               console.log("ALREADY HAVE THIS CARD IN DECk")
+               //totalCards = newDeckCollection[state.lastCard.card.name].count > 0 ? state.totalCards - 1 : state.totalCards;
+               newDeckCollection[state.lastCard.card.name].count = newDeckCollection[state.lastCard.card.name].count > 0 ? newDeckCollection[state.lastCard.card.name].count - 1 : 0
+               if (newDeckCollection[state.lastCard.card.name].count === 0) {
+                  delete (newDeckCollection[state.lastCard.card.name])
+               }
             }
          }
 
          return {
             ...state,
             totalCards,
-            collection: newCollection
+            collection: newCollection,
+            deck_collection: newDeckCollection
          }
       }
       default: {

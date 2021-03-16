@@ -8,6 +8,7 @@ const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
     collection: state.collection.collection,
+    deck_collection: state.collection.deck_collection,
     deck_mode: state.collection.deck_mode,
     decks: state.collection.decks,
     deck_loaded: state.collection.deck_loaded,
@@ -16,6 +17,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     moveFromCollToDeck: () => {
         console.log("MOVING CARD FROM COLL TO DECK")
+        // remove card from collection
+        dispatch(actions.deleteCard(false))
     },
     moveFromDeckToColl: () => {
         console.log("MOVING CARD FROM DECK TO COLL")
@@ -32,7 +35,7 @@ class DeckContainer extends Component {
         let cardList = []
 
         // collection list
-        for (const [key, val] of Object.entries(this.props.collection)) {
+        for (const [key, val] of Object.entries(this.props.deck_collection)) {
             let newCard = <Card key={val.card.id} card={val}></Card>
             let btn_plus = <button onClick={this.props.moveFromCollToDeck}>+</button>
             let btn_minus = <button onClick={this.props.moveFromDeckToColl}>-</button>

@@ -38,6 +38,7 @@ class CollectionContainer extends Component {
         let cardList = []
 
         for (const [key, val] of Object.entries(this.props.collection)) {
+            console.log("VAL OF CARD: ", val);
             let newCard = <Card key={val.card.id} card={val}></Card>
             cardList.push(newCard);
         }
