@@ -32,6 +32,10 @@ const mapDispatchToProps = dispatch => ({
     deleteCard: (card) => {
         dispatch(actions.deleteCardFromCollection(card))
     },
+
+    toggleViewMode: () => {
+        dispatch(actions.toggleViewMode())
+    }
 });
 
 class MainContainer extends Component {
@@ -43,23 +47,27 @@ class MainContainer extends Component {
         return (
             <div className="mainContainer">
                 {
+                    <button onClick={this.props.toggleViewMode}>Toggle View</button>
+                }
+                {
                     this.props.deck_mode ? <MyDecksContainer></MyDecksContainer> : null
                 }
                 {
                     this.props.deck_mode ? <DeckContainer></DeckContainer> : null
                 }
                 {
-                    <CollectionsDisplay></CollectionsDisplay>
+                    //<CollectionsDisplay></CollectionsDisplay>
                 }
                 {
-                    <CollectionContainer></CollectionContainer>
+                    this.props.deck_mode ? null : <CollectionContainer></CollectionContainer>
                 }
                 {
-                    <CardDisplay
-                        cardImage={this.props.cardImage}
-                        addCard={this.props.addCard}
-                        deleteCard={this.props.deleteCard}>
-                    </CardDisplay>
+                    this.props.deck_mode ? null :
+                        <CardDisplay
+                            cardImage={this.props.cardImage}
+                            addCard={this.props.addCard}
+                            deleteCard={this.props.deleteCard}>
+                        </CardDisplay>
                 }
             </div>
         );

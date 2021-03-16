@@ -1,5 +1,9 @@
 import * as types from '../constants/actionTypes';
 
+export const toggleViewMode = () => ({
+    type: types.TOGGLE_VIEW_MODE,
+})
+
 export const addCardToCollection = () => ({
     type: types.ADD_CARD_TO_COLLECTION,
 })

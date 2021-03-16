@@ -8,7 +8,8 @@ const scryfall = require("scryfall-client");
 const mapStateToProps = state => ({
     totalCards: state.collection.totalCards,
     cardImage: state.collection.lastCard.img,
-    collection: state.collection.collection
+    collection: state.collection.collection,
+    deck_mode: state.collection.deck_mode,
 });
 
 const mapDispatchToProps = dispatch => ({

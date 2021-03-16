@@ -42,6 +42,16 @@ export const DELETE_CARD_FROM_DECK_COLLECTION = "DELETE_CARD_FROM_DECK_COLLECTIO
 */
 const collectionReducer = (state = initialState, action) => {
    switch (action.type) {
+      case types.TOGGLE_VIEW_MODE: {
+         console.log("INSIDE TOGGLE_VIEW_MODE")
+         console.log("DECK_MODE IS CHANGING FROM ", state.deck_mode, " TO ", !state.deck_mode)
+         const newDeckMode = !state.deck_mode
+
+         return {
+            ...state,
+            deck_mode: newDeckMode,
+         }
+      }
       case types.DELETE_CARD_FROM_DECK_COLLECTION: {
          const newDeckCollection = { ...state.deck_collection };
          const cardName = action.payload.card.name;
