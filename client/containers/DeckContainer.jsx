@@ -50,18 +50,17 @@ class DeckContainer extends Component {
             console.log("DECK ID LOADED: ", this.props.deck_loaded)
             console.log("CARD LIST: ", this.props.decks[this.props.deck_loaded].cardList)
             for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
-                let newCard = <Card key={val.card.id} card={val}></Card>
+                let newCard = <span><Card key={val.card.id} card={val}></Card></span>
                 let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
                 deckList.push(newCard, btn_minus);
             }
         }
 
         return (
-            <div className="DeckContainer">
+            <div className="deckContainer">
                 {
                     collectionList
                 }
-                DECK_LIST:
                 {
                     deckList
                 }

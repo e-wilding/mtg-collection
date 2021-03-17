@@ -47,6 +47,9 @@ class MainContainer extends Component {
         return (
             <div className="mainContainer">
                 {
+
+                }
+                {
                     <button onClick={this.props.toggleViewMode}>Toggle View</button>
                 }
                 {

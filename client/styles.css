@@ -1,5 +1,24 @@
+html {
+  height: 100%
+}
+
 body {
-  background: white;
+  height: 100%;
+  margin: 0;
+  font-family: Ubuntu;
+  background: linear-gradient(#b3ffab, #67fffc);
+}
+
+#root {
+  outline: green solid 5px;
+}
+
+#header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(#444444, #333333);
+  color: #bbbbbb;
 }
 
 .deckBtn {
@@ -13,21 +32,38 @@ body {
 }
 
 .addCardBtn {
-  width: 50px;
+  width: auto;
   height: 50px;
 }
 
 .deleteCardBtn {
-  width: 50px;
+  width: auto;
   height: 50px;
+}
+
+.container {
+  background: black;
 }
 
 .mainContainer {
   background: lightcoral;
+  display: flex;
+  height: calc( 100vh - 30px);
 }
 
 .collectionContainer {
   background: lightpink;
+  min-width: 700px;
+}
+
+.deckContainer {
+  background: lightslategray;
+  display: flex;
+}
+
+.myDecksContainer {
+  min-width: 700px;
+  background: lightyellow;
 }
 
 .searchDisplay {
@@ -36,6 +72,16 @@ body {
 
 .collectionsDisplay {
   background: lightsalmon;
+}
+
+.cardImageDisplay {
+  display:flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 500px;
+  max-height: 600px;
 }
 
 .cardDisplay {
