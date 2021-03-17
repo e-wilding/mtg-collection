@@ -1,13 +1,19 @@
 html {
-  height: 100%
+  height: 100%;
+  background: url('../images/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
   height: 100%;
   margin: 0;
-  font-family: Ubuntu;
-  background: linear-gradient(#b3ffab, #67fffc);
+  font-family: Beleren;
 }
+
+h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-weight: 300;}
 
 #root {
   outline: green solid 5px;
@@ -27,8 +33,10 @@ body {
 }
 
 .color_icon {
-  max-width:15px;
-  max-height:15px;
+  width:auto;
+  max-height: 30px;
+  max-width: 30px;
+  height:auto;
 }
 
 .addCardBtn {
@@ -42,36 +50,29 @@ body {
 }
 
 .container {
-  background: black;
 }
 
 .mainContainer {
-  background: lightcoral;
   display: flex;
   height: calc( 100vh - 30px);
 }
 
 .collectionContainer {
-  background: lightpink;
   min-width: 700px;
 }
 
 .deckContainer {
-  background: lightslategray;
-  display: flex;
+  flex-direction: column;
 }
 
 .myDecksContainer {
   min-width: 700px;
-  background: lightyellow;
 }
 
 .searchDisplay {
-  background: lightgreen;
 }
 
 .collectionsDisplay {
-  background: lightsalmon;
 }
 
 .cardImageDisplay {
@@ -79,19 +80,25 @@ body {
   flex-direction: column;
 }
 
-img {
+.cardFaceDisplay {
   max-width: 500px;
   max-height: 600px;
 }
 
 .cardDisplay {
   background: lightcyan;
+  max-height: 55px;
+  font-size: 55px;
+  outline: black solid 1px;
+  overflow: hidden;
+  padding: 5px;
+  opacity: .5;
 }
 
+
 .card {
-  background: orange;
+  
 }
 
 ::placeholder {
-    color: gray;
 }

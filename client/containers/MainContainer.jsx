@@ -16,6 +16,7 @@ import CollectionContainer from './CollectionContainer.jsx'
 import CardDisplay from '../components/CardDisplay.jsx';
 import MyDecksContainer from './MyDecksContainer.jsx';
 import DeckContainer from './DeckContainer.jsx';
+import DeckCollectionContainer from './DeckCollectionContainer.jsx';
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = state => ({
@@ -47,13 +48,13 @@ class MainContainer extends Component {
         return (
             <div className="mainContainer">
                 {
-
-                }
-                {
                     <button onClick={this.props.toggleViewMode}>Toggle View</button>
                 }
                 {
                     this.props.deck_mode ? <MyDecksContainer></MyDecksContainer> : null
+                }
+                {
+                    this.props.deck_mode ? <DeckCollectionContainer></DeckCollectionContainer> : null
                 }
                 {
                     this.props.deck_mode ? <DeckContainer></DeckContainer> : null

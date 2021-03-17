@@ -15,12 +15,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    moveFromDeckToColl: (card) => {
-        console.log("MOVING CARD FROM DECK TO COLL")
+    moveFromCollToDeck: (card) => {
+        console.log("MOVING CARD FROM COLL TO DECK")
         // remove card from collection
-        dispatch(actions.addCardToDeckCollection(card))
-        dispatch(actions.deleteCardFromDeck(card))
-    }
+        dispatch(actions.deleteCardFromDeckCollection(card))
+        dispatch(actions.addCardToDeck(card))
+    },
 });
 
 class DeckContainer extends Component {
@@ -29,24 +29,24 @@ class DeckContainer extends Component {
     }
 
     render() {
-        let deckList = []
+        let deckCollectionList = []
 
-        // // deck list
-        if (this.props.deck_loaded !== -1) {
-            console.log("DECK ID LOADED: ", this.props.deck_loaded)
-            console.log("CARD LIST: ", this.props.decks[this.props.deck_loaded].cardList)
-            for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
-                let newCard = <Card key={val.card.id} card={val}></Card>
-                let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
-                deckList.push(newCard, btn_minus);
-            }
+        // deck collection list
+        for (const [key, val] of Object.entries(this.props.deck_collection)) {
+            let newCard = <Card key={val.card.id} card={val}></Card>
+            let btn_plus = <button onClick={() => this.props.moveFromCollToDeck(val.card)}>+</button>
+            deckCollectionList.push(newCard, btn_plus);
+        }
+
+        if (deckCollectionList.length === 0) {
+            deckCollectionList.push(<h1>DECK COLLECTION IS EMPTY!</h1>)
         }
 
         return (
-            <div className="deckContainer">
+            <div className="deckCollectionContainer">
                 <span>
                     {
-                        deckList
+                        deckCollectionList
                     }
                 </span>
             </div>
