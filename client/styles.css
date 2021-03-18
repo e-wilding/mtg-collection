@@ -1,108 +1,60 @@
-html {
-  height: 100%;
-  background: url('../images/background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  font-family: Beleren;
-}
-
-h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-weight: 300;}
-
-input[type=text] {
-  height: auto;
-}
-
-#root {
-  outline: green solid 5px;
-}
-
-#header {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(#444444, #333333);
-  color: #bbbbbb;
-}
-
-.deckBtn {
-  width: 150px;
-  height: 50px;
-}
-
-.color_icon {
-  width:auto;
-  max-height: 30px;
-  max-width: 30px;
-  height:auto;
-}
-
-.addCardBtn {
-  width: auto;
-  height: 50px;
-}
-
-.deleteCardBtn {
-  width: auto;
-  height: 50px;
-}
-
-.container {
-}
-
+/******************/
+/* Main Container */
+/******************/
 .mainContainer {
+  border: 2px solid gray;
   display: flex;
-  height: calc( 100vh - 30px);
-}
-
-.collectionContainer {
-  min-width: 700px;
-}
-
-.deckContainer {
   flex-direction: column;
+  height: 100%;
 }
 
-.myDecksContainer {
-  min-width: 700px;
+/**********/
+/* Header */
+/**********/
+.headerContainer {
+  width: 100%;
+  border: 2px solid magenta;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
 }
 
-.searchDisplay {
+/******************/
+/* Body Container */
+/******************/
+.bodyContainer {
+  display: flex;
+  width: 100%;
+  flex: 1;
 }
 
-.collectionsDisplay {
+/*******************/
+/* Collection Page */
+/*******************/
+.collectionContainer {
+  width: 50%;
+  border: 2px solid green;
 }
 
 .cardImageDisplay {
-  display:flex;
-  flex-direction: column;
+  width: 50%;
+  border: 2px solid orange;
 }
 
-.cardFaceDisplay {
-  max-width: 500px;
-  max-height: 600px;
+/************************/
+/* Deck Collection Page */
+/************************/
+.myDecksContainer {
+  width: 33%;
+  border: 2px solid green;
 }
 
-.cardDisplay {
-  background: lightcyan;
-  max-height: 55px;
-  font-size: 55px;
-  outline: black solid 1px;
-  overflow: hidden;
-  padding: 5px;
-  opacity: .5;
+.deckCollectionContainer {
+  width: 33%;
+  border: 2px solid green;
 }
 
-
-.card {
-  
-}
-
-::placeholder {
+.deckContainer {
+  width: 33%;
+  border: 2px solid green;
 }
