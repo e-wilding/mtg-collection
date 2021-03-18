@@ -4,7 +4,7 @@ import SearchDisplay from '../components/SearchDisplay.jsx'
 import Card from '../components/Card.jsx'
 import * as actions from '../actions/actions.js'
 import DeckDisplay from '../components/DeckDisplay.jsx';
-import DeckCardContainer from './DeckCardContainer.jsx';
+import DeckCollectionCardContainer from './DeckCollectionCardContainer.jsx';
 const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
@@ -24,7 +24,7 @@ class DeckContainer extends Component {
         return (
             <div className="deckCollectionContainer">
                 {
-                    <DeckCardContainer></DeckCardContainer>
+                    <DeckCollectionCardContainer></DeckCollectionCardContainer>
                 }
             </div>
         );

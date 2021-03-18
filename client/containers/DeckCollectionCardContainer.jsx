@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-class DeckCardContainer extends Component {
+class DeckCollectionCardContainer extends Component {
     constructor(props) {
         super(props);
     }
@@ -38,7 +38,7 @@ class DeckCardContainer extends Component {
 
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
-            let newCard = <DeckCardDisplay key={val.card.id} card={val} moveFromCollToDeck={this.props.moveFromCollToDeck}></DeckCardDisplay>
+            let newCard = <DeckCardDisplay key={val.card.id} card={val} moveFromCollToDeck={this.props.moveFromCollToDeck} deckId={this.props.deck_loaded}></DeckCardDisplay>
             deckCollectionList.push(newCard);
         }
 
@@ -51,7 +51,7 @@ class DeckCardContainer extends Component {
 
 
         return (
-            <div className="deckCardContainer">
+            <div className="deckCollectionCardContainer">
                 {
                     deckCollectionList
                 }
@@ -60,4 +60,4 @@ class DeckCardContainer extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeckCardContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckCollectionCardContainer);

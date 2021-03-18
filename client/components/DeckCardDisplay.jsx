@@ -12,7 +12,7 @@ const DeckCardDisplay = (props) => (
             <Card key={props.card.id} card={props.card} moveFromCollToDeck={props.moveFromCollToDeck} deck_mode={props.deck_mode}></Card>
         }
         {
-            <button onClick={() => props.moveFromCollToDeck(props.card.card, props.deck_loaded)}>+</button>
+            <button onClick={() => props.moveFromCollToDeck(props.card.card, props.deckId)}>+</button>
         }
     </div>
 );
