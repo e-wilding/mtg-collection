@@ -11,12 +11,18 @@ export const toggleViewMode = () => ({
     type: types.TOGGLE_VIEW_MODE,
 })
 
-export const addCardToCollection = () => ({
+export const addCardToCollection = (card) => ({
     type: types.ADD_CARD_TO_COLLECTION,
+    payload: {
+        card: card
+    }
 })
 
-export const deleteCardFromCollection = () => ({
+export const deleteCardFromCollection = (card) => ({
     type: types.DELETE_CARD_FROM_COLLECTION,
+    payload: {
+        card: card
+    }
 })
 
 // default is false, only specify to true if adding from deck

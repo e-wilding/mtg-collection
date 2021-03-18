@@ -38,7 +38,10 @@ class DeckCollectionCardContainer extends Component {
 
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
-            let newCard = <DeckCollectionCardDisplay key={val.card.id} card={val} moveFromCollToDeck={this.props.moveFromCollToDeck} deckId={this.props.deck_loaded}></DeckCollectionCardDisplay>
+            let newCard = <DeckCollectionCardDisplay key={val.card.id} card={val}
+                moveFromCollToDeck={this.props.moveFromCollToDeck}
+                deckId={this.props.deck_loaded}
+                deck_mode={this.props.deck_mode}></DeckCollectionCardDisplay>
             deckCollectionList.push(newCard);
         }
 

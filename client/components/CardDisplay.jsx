@@ -4,8 +4,8 @@ const defaultImg = "https://c1.scryfall.com/file/scryfall-card-backs/large/59/59
 const CardDisplay = (props) => (
     <div className="cardImageDisplay">
         <img id="cardFaceDisplay" src={props.cardImage}></img>
-        {props.cardImage !== defaultImg ? <input className="addCardBtn" type="button" value="+" onClick={props.addCard} /> : null}
-        {props.cardImage !== defaultImg ? <input className="deleteCardBtn" type="button" value="-" onClick={props.deleteCard} /> : null}
+        {props.cardImage !== defaultImg ? <input id="addCardBtn" type="button" value="+" onClick={() => props.addCard(props.card.card)} /> : null}
+        {props.cardImage !== defaultImg ? <input id="deleteCardBtn" type="button" value="-" onClick={() => props.deleteCard(props.card.card)} /> : null}
     </div>
 );
 

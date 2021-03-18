@@ -63,17 +63,33 @@ div {
 /************************/
 .myDecksContainer {
   width: 33%;
-  border: 2px solid green;
+  padding: 10px 10px;
 }
 
 .deckCollectionContainer {
   width: 33%;
-  border: 2px solid green;
+  padding: 10px 10px;
+}
+
+.deckCollectionCardContainer {
+  display:flex;
+  flex-direction: column;
+}
+
+.deckCollectionCardDisplay {
+  width: 100%
+}
+
+.deckCollectionCardDisplay {
+  display: flex;
 }
 
 .deckContainer {
   width: 33%;
-  border: 2px solid green;
+  padding: 10px 10px;
+}
+
+.deckCardDisplay {
 }
 
 /**************/
@@ -88,12 +104,12 @@ div {
 }
 
 .cardDisplay {
-  background:lightslategray;
+  padding: 35px 35px;
   font-size: 55px;
   outline: black solid 1px;
-  padding: 5px;
   opacity: .5;
   white-space: nowrap;
+  width:95%
 }
 
 .color_icon {
@@ -109,6 +125,7 @@ div {
   max-width:600px;
   margin-left: auto;
   margin-right:auto;
+  float:right;
 }
 
 .deleteCardBtn {
@@ -120,6 +137,22 @@ div {
 }
 
 img {
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+#addCardBtn {
+  height: 75px;
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+#deleteCardBtn {
+  height: 75px;
   width:100%;
   max-width:600px;
   margin-left: auto;
@@ -164,3 +197,15 @@ form:active,button:active,input:active{
     5px 5px 0 0 brown;
 }
 
+#delFromCollBtn {
+  padding: 10px 40px;
+  float: right;
+}
+
+#addToCollBtn {
+  padding: 10px 35px;
+  position:absolute;
+  top:auto;
+  right:50%; /* Positions 50% from right (right edge will be at center) */
+  margin-right:150px; /* Positions 200px to the left of center */
+}

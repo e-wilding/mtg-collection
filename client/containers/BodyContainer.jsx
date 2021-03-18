@@ -22,7 +22,8 @@ import HeaderContainer from './HeaderContainer.jsx';
 
 const mapStateToProps = state => ({
     cardImage: state.collection.lastCard.img,
-    deck_mode: state.collection.deck_mode
+    deck_mode: state.collection.deck_mode,
+    lastCard: state.collection.lastCard,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -64,7 +65,8 @@ class BodyContainer extends Component {
                         <CardDisplay
                             cardImage={this.props.cardImage}
                             addCard={this.props.addCard}
-                            deleteCard={this.props.deleteCard}>
+                            deleteCard={this.props.deleteCard}
+                            card={this.props.lastCard}>
                         </CardDisplay>
                 }
             </div>

@@ -13,6 +13,8 @@ const Card = (props) => (
         <img className="color_icon" src={props.card.card.colors.includes("B") ? BLACK_ICON : null}></img>
         <img className="color_icon" src={props.card.card.colors.includes("R") ? RED_ICON : null}></img>
         <img className="color_icon" src={props.card.card.colors.includes("G") ? GREEN_ICON : null}></img>
+        {props.deck_mode ? null : <button id="addToCollBtn" onClick={() => props.addCardToCollection(props.card.card)}>+</button>}
+        {props.deck_mode ? null : <button id="delFromCollBtn" onClick={() => props.deleteCardFromCollection(props.card.card)}>-</button>}
     </div>
 );
 

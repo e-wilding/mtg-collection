@@ -28,8 +28,15 @@ const mapDispatchToProps = dispatch => ({
                 dispatch(actions.errorSearch())
                 console.log("ERROR FETCHING CARD: ", err);
             })
-    }
+    },
 
+    addCardToCollection: (card) => {
+        dispatch(actions.addCardToCollection(card))
+    },
+
+    deleteCardFromCollection: (card) => {
+        dispatch(actions.deleteCardFromCollection(card))
+    }
 });
 
 class CollectionContainer extends Component {
@@ -39,11 +46,17 @@ class CollectionContainer extends Component {
 
     render() {
         let collection = []
+        let cardIdx = 0;
 
         for (const [key, val] of Object.entries(this.props.collection)) {
             console.log("VAL OF CARD: ", val);
-            let newCard = <Card key={val.card.id} card={val}></Card>
+            let newCard = <Card key={val.card.id} card={val} cardIdx={cardIdx}
+                addCardToCollection={this.props.addCardToCollection}
+                deleteCardFromCollection={this.props.deleteCardFromCollection}
+                deckMode={this.props.deck_mode}
+                collection={this.props.collection}></Card>
             collection.push(newCard);
+            cardIdx++;
         }
 
 

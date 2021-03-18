@@ -32,15 +32,15 @@ class DeckCardContainer extends Component {
     render() {
         let deckList = []
 
-        // // deck list
+        // deck list
         if (this.props.deck_loaded !== -1) {
             const deckName = <h1>{this.props.decks[this.props.deck_loaded].name}</h1>
             deckList.push(deckName)
             for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
-                let newCard = <DeckCardDisplay key={val.card.id} card={val} moveFromDeckToColl={this.props.moveFromDeckToColl} deckId={this.props.deck_loaded}></DeckCardDisplay>
-
-                //let newCard = <Card key={val.card.id} card={val}></Card>
-                //let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
+                let newCard = <DeckCardDisplay key={val.card.id} card={val}
+                    moveFromDeckToColl={this.props.moveFromDeckToColl}
+                    deckId={this.props.deck_loaded}
+                    deck_mode={this.props.deck_mode}></DeckCardDisplay>
                 deckList.push(newCard);
             }
         }
