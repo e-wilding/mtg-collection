@@ -34,6 +34,8 @@ class DeckContainer extends Component {
         // // deck list
         if (this.props.deck_loaded !== -1) {
             console.log("DECK ID LOADED: ", this.props.deck_loaded)
+            const deckName = <h1>{this.props.decks[this.props.deck_loaded].name}</h1>
+            deckList.push(deckName)
             console.log("CARD LIST: ", this.props.decks[this.props.deck_loaded].cardList)
             for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
                 let newCard = <Card key={val.card.id} card={val}></Card>
@@ -45,6 +47,9 @@ class DeckContainer extends Component {
         return (
             <div className="deckContainer">
                 <span>
+                    {
+
+                    }
                     {
                         deckList
                     }

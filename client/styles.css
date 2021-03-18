@@ -15,6 +15,10 @@ body {
 
 h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-weight: 300;}
 
+input[type=text] {
+  height: auto;
+}
+
 #root {
   outline: green solid 5px;
 }

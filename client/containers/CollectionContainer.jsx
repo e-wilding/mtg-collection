@@ -38,12 +38,17 @@ class CollectionContainer extends Component {
     }
 
     render() {
-        let cardList = []
+        let collection = []
 
         for (const [key, val] of Object.entries(this.props.collection)) {
             console.log("VAL OF CARD: ", val);
             let newCard = <Card key={val.card.id} card={val}></Card>
-            cardList.push(newCard);
+            collection.push(newCard);
+        }
+
+
+        if (collection.length === 0) {
+            collection.push(<h1>COLLECTION IS EMPTY!</h1>)
         }
 
         return (
@@ -56,7 +61,7 @@ class CollectionContainer extends Component {
                     </SearchDisplay>
                 }
                 {
-                    cardList
+                    collection
                 }
             </div>
         );

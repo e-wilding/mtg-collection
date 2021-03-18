@@ -38,8 +38,11 @@ class DeckContainer extends Component {
             deckCollectionList.push(newCard, btn_plus);
         }
 
-        if (deckCollectionList.length === 0) {
-            deckCollectionList.push(<h1>DECK COLLECTION IS EMPTY!</h1>)
+        if (this.props.deck_loaded === -1) {
+            deckCollectionList.push(<h1>NO DECK LOADED. CREATE ONE!</h1>)
+        } else if (deckCollectionList.length === 0) {
+            deckCollectionList.push(<h1>DECK COLLECTION IS EMPTY!
+                                        ADD CARDS TO YOUR COLLECTION!</h1>)
         }
 
         return (

@@ -14,6 +14,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
    deck_mode: true,
+   deck_creation_error: false,
    deck_loaded: -1, // index of loaded deck
    decks: [], // array of objects 
    search_error: false,
@@ -164,6 +165,24 @@ const collectionReducer = (state = initialState, action) => {
          };
       }
       case types.ADD_DECK: {
+         // Can't create a deck with an empty string
+         if (action.payload.deckName === "") {
+            return {
+               ...state,
+               deck_creation_error: true,
+            }
+         }
+
+         // Can't create a deck with an already used name
+         for (let i = 0; i < state.decks.length; i++) {
+            if (action.payload.deckName === state.decks[i].name) {
+               return {
+                  ...state,
+                  deck_creation_error: true,
+               }
+            }
+         }
+
          const newDeck = {
             name: action.payload.deckName,
             id: state.decks.length,
@@ -182,6 +201,7 @@ const collectionReducer = (state = initialState, action) => {
             ...state,
             decks,
             deck_loaded: newDeck.id, // always load deck you just added
+            deck_creation_error: false,
          };
       }
       case types.NEW_SEARCH: {

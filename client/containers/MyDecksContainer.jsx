@@ -7,13 +7,15 @@ const scryfall = require("scryfall-client");
 const mapStateToProps = state => ({
     deck_mode: state.collection.deck_mode,
     decks: state.collection.decks,
+    deck_creation_error: state.collection.deck_creation_error,
 });
 
 const mapDispatchToProps = dispatch => ({
     addDeck: (e) => {
         e.preventDefault()
         const deckName = document.querySelector('#deckName')
-        dispatch(actions.addDeck(deckName.value));
+        if (deckName.value !== "")
+            dispatch(actions.addDeck(deckName.value));
     },
 
     updateLoadedDeckId: (id) => {
@@ -48,6 +50,9 @@ class MyDecksContainer extends Component {
                         </label>
                         <input type="submit" value="Create New Deck" onClick={this.props.addDeck} />
                     </form>
+                }
+                {
+                    this.props.deck_creation_error ? <h2> Error creating deck! </h2> : <h2></h2>
                 }
                 {
                     decks
