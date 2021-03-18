@@ -15,11 +15,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    moveFromCollToDeck: (card) => {
+    moveFromCollToDeck: (card, deckId) => {
         console.log("MOVING CARD FROM COLL TO DECK")
         // remove card from collection
-        dispatch(actions.deleteCardFromDeckCollection(card))
-        dispatch(actions.addCardToDeck(card))
+        if (deckId !== -1) {
+            dispatch(actions.deleteCardFromDeckCollection(card))
+            dispatch(actions.addCardToDeck(card))
+        }
     },
 });
 
@@ -34,7 +36,7 @@ class DeckContainer extends Component {
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
             let newCard = <Card key={val.card.id} card={val}></Card>
-            let btn_plus = <button onClick={() => this.props.moveFromCollToDeck(val.card)}>+</button>
+            let btn_plus = <button onClick={() => this.props.moveFromCollToDeck(val.card, this.props.deck_loaded)}>+</button>
             deckCollectionList.push(newCard, btn_plus);
         }
 

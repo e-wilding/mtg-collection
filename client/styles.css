@@ -1,3 +1,18 @@
+html {
+  font-family: Arial !important;
+  color: black;
+}
+
+div {
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+
 /******************/
 /* Main Container */
 /******************/
@@ -14,7 +29,7 @@
 .headerContainer {
   width: 100%;
   border: 2px solid magenta;
-  height: 50px;
+  height: 200px;
   line-height: 50px;
   text-align: center;
 }
@@ -36,7 +51,9 @@
   border: 2px solid green;
 }
 
-.cardImageDisplay {
+.cardImageDisplay{
+  display: flex;
+  flex-direction: column;
   width: 50%;
   border: 2px solid orange;
 }
@@ -58,3 +75,84 @@
   width: 33%;
   border: 2px solid green;
 }
+
+/**************/
+/* Components */
+/**************/
+.cardDisplay {
+  background:lightslategray;
+  max-height: auto;
+  font-size: 55px;
+  outline: black solid 1px;
+  padding: 5px;
+  opacity: .5;
+}
+
+.color_icon {
+  width:auto;
+  max-height: 30px;
+  max-width: 30px;
+  height:auto;
+}
+
+.addCardBtn {
+  height: 75px;
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.deleteCardBtn {
+  height: 75px;
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+img {
+  width:100%;
+  max-width:600px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+/************************************/
+/* COOL ASS BUTTONS, FORM, & INPUTS */
+/************************************/
+form,button,input{
+  outline:0; 
+  font-size:1em;
+  font-weight:600;
+  background:lightgray;
+  border:none;
+  padding:2em 4em;
+  transition:all .3s ease-out; 
+  box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 brown,
+    2px 2px 0 0 brown,
+    3px 3px 0 0 brown,
+    4px 4px 0 0 brown,
+    5px 5px 0 0 brown,
+    6px 6px 0 0 brown,
+    7px 7px 0 0 brown,
+    8px 8px 0 0 brown,
+    9px 9px 0 0 brown,
+    10px 10px 0 0 brown,
+    11px 11px 0 0 brown,
+    12px 12px 0 0 brown;
+}
+form:hover,button:hover,input:hover{
+  color:#444;
+}
+form:active,button:active,input:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 brown,
+    2px 2px 0 0 brown,
+    3px 3px 0 0 brown,
+    4px 4px 0 0 brown,
+    5px 5px 0 0 brown;
+}
+

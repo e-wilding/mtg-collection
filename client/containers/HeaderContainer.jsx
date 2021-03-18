@@ -6,15 +6,13 @@ import HeaderDisplay from '../components/HeaderDisplay.jsx';
 const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
-    totalCards: state.collection.totalCards,
-    cardImage: state.collection.lastCard.img,
-    collection: state.collection.collection,
-    deck_mode: state.collection.deck_mode,
-    search_error: state.collection.search_error,
+    toggleViewMode: state.collection.toggleViewMode,
 });
 
 const mapDispatchToProps = dispatch => ({
-
+    toggleViewMode: () => {
+        dispatch(actions.toggleViewMode())
+    }
 });
 
 class HeaderContainer extends Component {
@@ -27,6 +25,9 @@ class HeaderContainer extends Component {
             <div className="headerContainer">
                 {
                     <HeaderDisplay></HeaderDisplay>
+                }
+                {
+                    <button onClick={this.props.toggleViewMode}>Toggle View</button>
                 }
             </div>
         );

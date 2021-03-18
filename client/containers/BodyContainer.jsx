@@ -34,10 +34,6 @@ const mapDispatchToProps = dispatch => ({
     deleteCard: (card) => {
         dispatch(actions.deleteCardFromCollection(card))
     },
-
-    toggleViewMode: () => {
-        dispatch(actions.toggleViewMode())
-    }
 });
 
 class BodyContainer extends Component {
@@ -48,9 +44,6 @@ class BodyContainer extends Component {
     render() {
         return (
             <div className="bodyContainer">
-                {
-                    <button onClick={this.props.toggleViewMode}>Toggle View</button>
-                }
                 {
                     this.props.deck_mode ? <MyDecksContainer></MyDecksContainer> : null
                 }
