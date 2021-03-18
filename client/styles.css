@@ -79,6 +79,10 @@ div {
 /**************/
 /* Components */
 /**************/
+.deckCollectionCardDisplay {
+  display: flex;
+}
+
 .deckCardDisplay {
   display: flex;
 }

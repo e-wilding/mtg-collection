@@ -4,7 +4,7 @@ import SearchDisplay from '../components/SearchDisplay.jsx'
 import Card from '../components/Card.jsx'
 import * as actions from '../actions/actions.js'
 import DeckDisplay from '../components/DeckDisplay.jsx';
-import DeckCardDisplay from '../components/DeckCardDisplay.jsx';
+import DeckCollectionCardDisplay from '../components/DeckCollectionCardDisplay.jsx';
 const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
@@ -38,7 +38,7 @@ class DeckCollectionCardContainer extends Component {
 
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
-            let newCard = <DeckCardDisplay key={val.card.id} card={val} moveFromCollToDeck={this.props.moveFromCollToDeck} deckId={this.props.deck_loaded}></DeckCardDisplay>
+            let newCard = <DeckCollectionCardDisplay key={val.card.id} card={val} moveFromCollToDeck={this.props.moveFromCollToDeck} deckId={this.props.deck_loaded}></DeckCollectionCardDisplay>
             deckCollectionList.push(newCard);
         }
 
@@ -48,7 +48,6 @@ class DeckCollectionCardContainer extends Component {
             deckCollectionList.push(<h1>DECK COLLECTION IS EMPTY!
                                     ADD CARDS TO YOUR COLLECTION!</h1>)
         }
-
 
         return (
             <div className="deckCollectionCardContainer">

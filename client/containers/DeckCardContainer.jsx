@@ -4,7 +4,7 @@ import SearchDisplay from '../components/SearchDisplay.jsx'
 import Card from '../components/Card.jsx'
 import * as actions from '../actions/actions.js'
 import DeckDisplay from '../components/DeckDisplay.jsx';
-import DeckCardContainer from './DeckCardContainer.jsx';
+import DeckCardDisplay from '../components/DeckCardDisplay.jsx'
 const scryfall = require("scryfall-client");
 
 const mapStateToProps = state => ({
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-class DeckContainer extends Component {
+class DeckCardContainer extends Component {
     constructor(props) {
         super(props);
     }
@@ -34,25 +34,25 @@ class DeckContainer extends Component {
 
         // // deck list
         if (this.props.deck_loaded !== -1) {
-            console.log("DECK ID LOADED: ", this.props.deck_loaded)
             const deckName = <h1>{this.props.decks[this.props.deck_loaded].name}</h1>
             deckList.push(deckName)
-            console.log("CARD LIST: ", this.props.decks[this.props.deck_loaded].cardList)
             for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
-                let newCard = <Card key={val.card.id} card={val}></Card>
-                let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
-                deckList.push(newCard, btn_minus);
+                let newCard = <DeckCardDisplay key={val.card.id} card={val} moveFromDeckToColl={this.props.moveFromDeckToColl} deckId={this.props.deck_loaded}></DeckCardDisplay>
+
+                //let newCard = <Card key={val.card.id} card={val}></Card>
+                //let btn_minus = <button onClick={() => this.props.moveFromDeckToColl(val.card)}>-</button>
+                deckList.push(newCard);
             }
         }
 
         return (
-            <div className="deckContainer">
+            <div className="deckCardContainer">
                 {
-                    <DeckCardContainer></DeckCardContainer>
+                    deckList
                 }
             </div>
         );
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeckContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckCardContainer);
