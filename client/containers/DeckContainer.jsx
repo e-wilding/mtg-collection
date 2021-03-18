@@ -46,11 +46,9 @@ class DeckContainer extends Component {
 
         return (
             <div className="deckContainer">
-                <span>
-                    {
-                        deckList
-                    }
-                </span>
+                {
+                    deckList
+                }
             </div>
         );
     }

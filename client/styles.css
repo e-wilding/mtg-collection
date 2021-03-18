@@ -79,13 +79,17 @@ div {
 /**************/
 /* Components */
 /**************/
+.deckCardDisplay {
+  display: flex;
+}
+
 .cardDisplay {
   background:lightslategray;
-  max-height: auto;
   font-size: 55px;
   outline: black solid 1px;
   padding: 5px;
   opacity: .5;
+  white-space: nowrap;
 }
 
 .color_icon {

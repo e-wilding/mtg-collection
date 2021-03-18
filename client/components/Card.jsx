@@ -7,14 +7,12 @@ const GREEN_ICON = require("../../images/green_icon.png")
 
 const Card = (props) => (
     <div className="cardDisplay">
-        <span>
-            {props.card.count}  |  {props.card.card.name}  |
-            <img className="color_icon" src={props.card.card.colors.includes("W") ? WHITE_ICON : null}></img>
-            <img className="color_icon" src={props.card.card.colors.includes("U") ? BLUE_ICON : null}></img>
-            <img className="color_icon" src={props.card.card.colors.includes("B") ? BLACK_ICON : null}></img>
-            <img className="color_icon" src={props.card.card.colors.includes("R") ? RED_ICON : null}></img>
-            <img className="color_icon" src={props.card.card.colors.includes("G") ? GREEN_ICON : null}></img>
-        </span>
+        {props.card.count}  |  {props.card.card.name}  |
+        <img className="color_icon" src={props.card.card.colors.includes("W") ? WHITE_ICON : null}></img>
+        <img className="color_icon" src={props.card.card.colors.includes("U") ? BLUE_ICON : null}></img>
+        <img className="color_icon" src={props.card.card.colors.includes("B") ? BLACK_ICON : null}></img>
+        <img className="color_icon" src={props.card.card.colors.includes("R") ? RED_ICON : null}></img>
+        <img className="color_icon" src={props.card.card.colors.includes("G") ? GREEN_ICON : null}></img>
     </div>
 );
 

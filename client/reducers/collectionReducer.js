@@ -70,8 +70,10 @@ const collectionReducer = (state = initialState, action) => {
       }
       case types.DELETE_CARD_FROM_DECK_COLLECTION: {
          const newDeckCollection = { ...state.deck_collection };
+         console.log("payload", action.payload)
          const cardName = action.payload.card.name;
          const cardToDelete = newDeckCollection[cardName];
+         console.log("newDeckCollection[cardName] ", newDeckCollection[cardName])
          let cardCount = newDeckCollection[cardName].count;
 
          console.log("INSIDE DELETE_CARD_FROM_DECK_COLLECTION")
