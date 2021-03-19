@@ -17,7 +17,7 @@ div {
 /* Main Container */
 /******************/
 .mainContainer {
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -28,7 +28,7 @@ div {
 /**********/
 .headerContainer {
   width: 100%;
-  border: 2px solid magenta;
+  /* border: 2px solid magenta; */
   height: 200px;
   line-height: 50px;
   text-align: center;
@@ -48,14 +48,14 @@ div {
 /*******************/
 .collectionContainer {
   width: 50%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .cardImageDisplay{
   display: flex;
   flex-direction: column;
   width: 50%;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
 }
 
 /************************/
@@ -104,12 +104,13 @@ div {
 }
 
 .cardDisplay {
+  color: black;
   padding: 35px 35px;
-  font-size: 55px;
-  outline: black solid 1px;
-  opacity: .5;
+  font-size: 30px;
+  outline: black solid 5px;
   white-space: nowrap;
-  width:95%
+  width:95%;
+  background: darkgray;
 }
 
 .color_icon {
@@ -134,6 +135,28 @@ div {
   max-width:600px;
   margin-left: auto;
   margin-right:auto;
+}
+
+.title {
+  color: black;
+  padding: 35px 35px;
+  font-size: 30px;
+  outline: black solid 1px;
+  white-space: nowrap;
+  background: darkseagreen;
+  border: black 10px solid;
+  text-align: center;
+}
+
+.errorTitle {
+  color: white;
+  padding: 35px 35px;
+  font-size: 30px;
+  outline: black solid 1px;
+  white-space: nowrap;
+  background: darkred;
+  border: black 10px solid;
+  text-align: center;
 }
 
 img {
@@ -208,4 +231,12 @@ form:active,button:active,input:active{
   top:auto;
   right:50%; /* Positions 50% from right (right edge will be at center) */
   margin-right:150px; /* Positions 200px to the left of center */
+}
+
+.deckBtnNotActive {
+  background: darkgray
+}
+
+.deckBtnActive {
+  background: darkseagreen
 }

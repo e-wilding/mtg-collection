@@ -7,6 +7,7 @@ const scryfall = require("scryfall-client");
 const mapStateToProps = state => ({
     deck_mode: state.collection.deck_mode,
     decks: state.collection.decks,
+    deck_loaded: state.collection.deck_loaded,
     deck_creation_error: state.collection.deck_creation_error,
 });
 
@@ -32,11 +33,12 @@ class MyDecksContainer extends Component {
         const decks = []
 
         // Loop through deck list...
-        console.log("PROPS DECKS: ", this.props.decks)
-        //for (const key of this.props.decks) {
         for (let i = 0; i < this.props.decks.length; i++) {
-            console.log("DECK IDX: ", decks)
-            let newDeck = <DecksDisplay id={"deck" + i} deckName={this.props.decks[i].name} deckId={i} updateLoadedDeckId={this.props.updateLoadedDeckId}></DecksDisplay>
+            let newDeck = <DecksDisplay id={"deck" + i}
+                deckName={this.props.decks[i].name}
+                deckId={i}
+                deck_active={i === this.props.deck_loaded}
+                updateLoadedDeckId={this.props.updateLoadedDeckId}></DecksDisplay>
             decks.push(newDeck);
         }
 
@@ -52,7 +54,7 @@ class MyDecksContainer extends Component {
                     </form>
                 }
                 {
-                    this.props.deck_creation_error ? <h2> Error creating deck! </h2> : <h2></h2>
+                    this.props.deck_creation_error ? <h2 className="errorTitle">Error creating deck!</h2> : <h2></h2>
                 }
                 {
                     decks

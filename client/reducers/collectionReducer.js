@@ -239,7 +239,7 @@ const collectionReducer = (state = initialState, action) => {
          } else {
             console.log("DO NOT HAVE THIS CARD")
             newCollection[cardName] = {
-               card: state.lastCard.card,
+               card: action.payload.card,
                count: 1
             }
          }
@@ -248,7 +248,7 @@ const collectionReducer = (state = initialState, action) => {
             newDeckCollection[cardName].count = cardToAddDeck.count + 1
          } else {
             newDeckCollection[cardName] = {
-               card: state.lastCard.card,
+               card: action.payload.card,
                count: 1
             }
          }

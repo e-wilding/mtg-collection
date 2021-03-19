@@ -61,7 +61,7 @@ class CollectionContainer extends Component {
 
 
         if (collection.length === 0) {
-            collection.push(<h1>COLLECTION IS EMPTY!</h1>)
+            collection.push(<h1 className="errorTitle">COLLECTION IS EMPTY!</h1>)
         }
 
         return (

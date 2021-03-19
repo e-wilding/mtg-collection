@@ -34,15 +34,19 @@ class DeckCardContainer extends Component {
 
         // deck list
         if (this.props.deck_loaded !== -1) {
-            const deckName = <h1>{this.props.decks[this.props.deck_loaded].name}</h1>
+            const deckName = <h1 className="title">{this.props.decks[this.props.deck_loaded].name}</h1>
             deckList.push(deckName)
             for (const [key, val] of Object.entries(this.props.decks[this.props.deck_loaded].cardList)) {
                 let newCard = <DeckCardDisplay key={val.card.id} card={val}
                     moveFromDeckToColl={this.props.moveFromDeckToColl}
                     deckId={this.props.deck_loaded}
+                    deck_name={this.props.decks[this.props.deck_loaded].name}
                     deck_mode={this.props.deck_mode}></DeckCardDisplay>
                 deckList.push(newCard);
             }
+        } else {
+            const deckName = <h1 className="errorTitle">No Deck Loaded Yet</h1>
+            deckList.push(deckName)
         }
 
         return (

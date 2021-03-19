@@ -36,6 +36,8 @@ class DeckCollectionCardContainer extends Component {
 
         let deckCollectionList = []
 
+        deckCollectionList.push(<h1 className='title'>Your Collection</h1>)
+
         // deck collection list
         for (const [key, val] of Object.entries(this.props.deck_collection)) {
             let newCard = <DeckCollectionCardDisplay key={val.card.id} card={val}
@@ -45,11 +47,8 @@ class DeckCollectionCardContainer extends Component {
             deckCollectionList.push(newCard);
         }
 
-        if (this.props.deck_loaded === -1) {
-            deckCollectionList.push(<h1>NO DECK LOADED. CREATE ONE!</h1>)
-        } else if (deckCollectionList.length === 0) {
-            deckCollectionList.push(<h1>DECK COLLECTION IS EMPTY!
-                                    ADD CARDS TO YOUR COLLECTION!</h1>)
+        if (deckCollectionList.length === 1) {
+            deckCollectionList.push(<h1 className="errorTitle">DECK COLLECTION IS EMPTY!</h1>)
         }
 
         return (
