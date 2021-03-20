@@ -13,7 +13,7 @@ import { bindActionCreators } from 'redux';
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-   deck_mode: true,
+   deck_mode: false,
    deck_creation_error: false,
    deck_loaded: -1, // index of loaded deck
    decks: [], // array of objects 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const SearchDisplay = (props) => (
     <div className="searchDisplay">
-        <h1>YOUR COLLECTION : ({props.totalCards})</h1>
+        <h1 className="title">YOUR COLLECTION : ({props.totalCards})</h1>
         <form>
             <label>
                 <input type="text" id="cardNameSearch" />

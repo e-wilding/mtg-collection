@@ -1,5 +1,5 @@
 html {
-  font-family: Arial !important;
+  font-family: Satans Minion !important;
   color: black;
 }
 
@@ -29,7 +29,7 @@ div {
 .headerContainer {
   width: 100%;
   /* border: 2px solid magenta; */
-  height: 200px;
+  height: 250px;
   line-height: 50px;
   text-align: center;
 }
@@ -194,18 +194,18 @@ form,button,input{
   padding:2em 4em;
   transition:all .3s ease-out; 
   box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
-    1px 1px 0 0 brown,
-    2px 2px 0 0 brown,
-    3px 3px 0 0 brown,
-    4px 4px 0 0 brown,
-    5px 5px 0 0 brown,
-    6px 6px 0 0 brown,
-    7px 7px 0 0 brown,
-    8px 8px 0 0 brown,
-    9px 9px 0 0 brown,
-    10px 10px 0 0 brown,
-    11px 11px 0 0 brown,
-    12px 12px 0 0 brown;
+    1px 1px 0 0 lightsteelblue,
+    2px 2px 0 0 lightsteelblue,
+    3px 3px 0 0 lightsteelblue,
+    4px 4px 0 0 lightsteelblue,
+    5px 5px 0 0 lightsteelblue,
+    6px 6px 0 0 lightsteelblue,
+    7px 7px 0 0 lightsteelblue,
+    8px 8px 0 0 lightsteelblue,
+    9px 9px 0 0 lightsteelblue,
+    10px 10px 0 0 lightsteelblue,
+    11px 11px 0 0 lightsteelblue,
+    12px 12px 0 0 lightsteelblue;
 }
 form:hover,button:hover,input:hover{
   color:#444;
@@ -213,11 +213,11 @@ form:hover,button:hover,input:hover{
 form:active,button:active,input:active{
   color:#222;
   box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.2),
-    1px 1px 0 0 brown,
-    2px 2px 0 0 brown,
-    3px 3px 0 0 brown,
-    4px 4px 0 0 brown,
-    5px 5px 0 0 brown;
+    1px 1px 0 0 lightsteelblue,
+    2px 2px 0 0 lightsteelblue,
+    3px 3px 0 0 lightsteelblue,
+    4px 4px 0 0 lightsteelblue,
+    5px 5px 0 0 lightsteelblue;
 }
 
 #delFromCollBtn {
@@ -239,4 +239,27 @@ form:active,button:active,input:active{
 
 .deckBtnActive {
   background: darkseagreen
+}
+
+.headerDisplay {
+  font-size: 30px;
+  text-align: center;
+  outline: 1px dashed lightsteelblue;
+  outline-offset: -5px;
+  background-color: #556068;
+  background: #556068;
+  padding: 10px;
+  width: 100%;
+  opacity: 100%;
+  -webkit-box-shadow: 2px 2px 2px #000;
+  -moz-box-shadow: 2px 2px 2px #000;
+  box-shadow: 2px 2px 2px #000;
+  -webkit-text-stroke: 1px black;
+  color: white;
+  text-shadow:
+      3px 3px 0 #000,
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
